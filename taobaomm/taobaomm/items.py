@@ -11,4 +11,6 @@ import scrapy
 class TaobaommItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    home_page = scrapy.Field()
+    last_updated = scrapy.Field(serializer=str)

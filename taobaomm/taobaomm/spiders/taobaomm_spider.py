@@ -1,18 +1,18 @@
 import scrapy
+from taobaomm.items import TaobaommItem
 
-
-class QuotesSpider(scrapy.Spider):
+class TaobaommSpider(scrapy.Spider):
     name = "taobaomm"
 
-    def start_requests(self):
-        urls = [
-            'http://mm.taobao.com/json/request_top_list.htm',
-        ]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+    start_urls = [
+        'http://mm.taobao.com/json/request_top_list.htm',
+    ]
+
+    custom_settings = {}
 
     def parse(self, response):
-        filename = response.url.split("/")[-1]
-        with open(filename, 'wb') as f:
-            f.write(response.body)
-        self.log('Saved file %s' % filename)
+        for url in response.xpath('//a[contains(@href, "user_id")]'):
+            yield TaobaommItem(
+                name=url.xpath('text()').extract_first().encode('utf-8'),
+                home_page=url.xpath('@href').extract_first()
+                )

@@ -46,23 +46,23 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-    'taobaomm.middlewares.TaobaommSpiderMiddleware': 543,
-    # 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
-    'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
-    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
-    'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
-    'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
-    'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
-    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
-    'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
-    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
-    'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
-    'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
-}
+# SPIDER_MIDDLEWARES = {
+#     'taobaomm.middlewares.TaobaommSpiderMiddleware': 543,
+#     # 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
+#     'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
+#     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
+#     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
+#     'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
+#     'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
+#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
+#     'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
+#     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+#     'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
+#     'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
+# }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
@@ -78,9 +78,9 @@ SPIDER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'taobaomm.pipelines.TaobaommPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'taobaomm.pipelines.TaobaommPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
