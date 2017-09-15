@@ -46,29 +46,33 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-# SPIDER_MIDDLEWARES = {
-#     'taobaomm.middlewares.TaobaommSpiderMiddleware': 543,
-#     # 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
-#     'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
-#     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
-#     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
-#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
-#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
-#     'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
-#     'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
-#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
-#     'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
-#     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
-#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
-#     'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
-#     'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
-# }
+SPIDER_MIDDLEWARES = {
+    'taobaomm.middlewares.TaobaommSpiderMiddleware': 543,
+    'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
+    'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
+    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
+    'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
+    'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
+    'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
+    'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
+    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+    'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
+    'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'taobaomm.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+   # 'taobaomm.middlewares.MyCustomDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -107,3 +111,8 @@ HTTPPROXY_ENABLED = True
 ROBOTSTXT_OBEY = False
 
 FEED_EXPORT_ENCODING = 'utf-8'
+
+#splash setting
+SPLASH_URL ='http://192.168.99.100:8050/'
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'

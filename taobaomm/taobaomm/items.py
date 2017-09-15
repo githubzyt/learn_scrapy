@@ -13,4 +13,7 @@ class TaobaommItem(scrapy.Item):
     # name = scrapy.Field()
     name = scrapy.Field()
     home_page = scrapy.Field()
+    age = scrapy.Field()
+    location = scrapy.Field()
+    user_id = scrapy.Field()
     last_updated = scrapy.Field(serializer=str)
